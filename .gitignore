@@ -4,5 +4,4 @@
 crash.log
 *.tfvars
 tutorial-key
-tutorial-key.pub
 windows_amd64/
