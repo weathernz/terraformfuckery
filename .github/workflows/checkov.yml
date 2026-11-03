@@ -1,0 +1,28 @@
+name: Terraform Security Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "AWS/**/*.tf"
+      - "Azure/**/*.tf"
+      - ".github/workflows/checkov.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  checkov:
+    name: Checkov
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan Terraform with Checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: terraform
