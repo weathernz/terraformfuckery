@@ -1,4 +1,5 @@
 resource "aws_vpc" "main" {
+  #checkov:skip=CKV2_AWS_11:Tutorial VPC intentionally omits Flow Logs to avoid additional logging infrastructure and costs.
   cidr_block           = "10.0.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true

@@ -12,6 +12,7 @@ resource "aws_key_pair" "tutorial" {
 }
 
 resource "aws_instance" "tutorial" {
+  #checkov:skip=CKV2_AWS_41:Tutorial EC2 instance does not require AWS API access; assigning an IAM role would grant unnecessary credentials.
   ami                         = data.aws_ssm_parameter.amazon_linux_2023.value
   instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public.id
