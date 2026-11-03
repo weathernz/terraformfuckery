@@ -13,12 +13,25 @@ resource "aws_key_pair" "tutorial" {
 
 resource "aws_instance" "tutorial" {
   #checkov:skip=CKV2_AWS_41:Tutorial EC2 instance does not require AWS API access; assigning an IAM role would grant unnecessary credentials.
+  #checkov:skip=CKV_AWS_88:Tutorial instance intentionally has a public IPv4 address for direct SSH; ingress is restricted to the administrator's /32 address.
+  #checkov:skip=CKV_AWS_130:Tutorial public subnet intentionally assigns public IPv4 addresses; only explicitly permitted workloads are placed here.
   ami                         = data.aws_ssm_parameter.amazon_linux_2023.value
   instance_type               = "t3.micro"
+  ebs_optimized = true
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.ec2.id]
   key_name                    = aws_key_pair.tutorial.key_name
   associate_public_ip_address = true
+
+  root_block_device {
+    encrypted   = true
+    volume_type = "gp3"
+  }
+
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
   tags = {
     Name        = "tutorial-ec2"

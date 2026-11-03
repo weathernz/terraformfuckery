@@ -11,6 +11,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public" {
+  #checkov:skip=CKV_AWS_130:Tutorial public subnet intentionally assigns public IPv4 addresses; only explicitly permitted workloads are placed here.
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "ap-southeast-2a"
