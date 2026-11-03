@@ -5,6 +5,7 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name = "tutorial-vpc"
+    What = "in the butt"
   }
 }
 
