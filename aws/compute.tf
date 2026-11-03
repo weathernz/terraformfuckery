@@ -30,7 +30,7 @@ resource "aws_instance" "tutorial" {
 
   metadata_options {
     http_endpoint = "enabled"
-    http_tokens   = "required"
+    http_tokens   = "optional"
   }
 
   tags = {
