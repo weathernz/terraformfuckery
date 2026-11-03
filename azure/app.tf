@@ -6,5 +6,6 @@ resource "azurerm_resource_group" "main" {
     Environment = "Tutorial"
     HCPTest     = "ViaPullRequest"
     What        = "in the butt"
+    ISaid       = "what what"
   }
 }
