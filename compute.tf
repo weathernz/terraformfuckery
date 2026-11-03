@@ -22,5 +22,6 @@ resource "aws_instance" "tutorial" {
   tags = {
     Name        = "tutorial-ec2"
     Description = "My first Terraform EC2 instance"
+    ChangeTest  = "ViaPullRequest"
   }
 }
