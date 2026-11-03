@@ -69,7 +69,7 @@ resource "azurerm_subnet" "apps-snet" {
 
   private_endpoint_network_policies = "Enabled"
   service_endpoints = [
-    "AzureActiveDirectory"
+    "Microsoft.AzureActiveDirectory"
   ]
 
 }
