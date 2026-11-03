@@ -5,5 +5,6 @@ resource "azurerm_resource_group" "main" {
   tags = {
     Environment = "Tutorial"
     HCPTest     = "ViaPullRequest"
+    What = "in the butt"
   }
 }
