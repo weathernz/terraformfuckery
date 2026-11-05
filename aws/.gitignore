@@ -1,7 +1,0 @@
-.terraform/
-*.tfstate
-*.tfstate.*
-crash.log
-*.tfvars
-tutorial-key
-windows_amd64/
